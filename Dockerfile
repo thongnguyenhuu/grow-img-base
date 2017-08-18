@@ -6,11 +6,14 @@ RUN apt-get install curl
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash
 RUN apt-get install -y nodejs
 
+# Install Yarn
+RUN npm install -g yarn
+
 # Install Bower
-RUN npm install -g bower
+RUN yarn global add bower
 RUN echo "{ \"allow_root\": true }" > $HOME/.bowerrc
 
 # Install Gulp
-RUN npm install -g gulp
+RUN yarn global add gulp
 
 ENTRYPOINT ["grow"]
